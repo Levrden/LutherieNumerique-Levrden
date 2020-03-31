@@ -1,0 +1,71 @@
+#N canvas -8 -8 1920 1007 12;
+#X text 110 173 115200 est le baud rate. Vous pourriez avoir à le
+changer également.;
+#X text 201 329 Décode les paquets SLIP et forme des listes. (Merci
+Monsieur Pêche!);
+#X obj 66 331 mrpeach/slipdec;
+#X msg 53 108 devices;
+#X text 63 90 Obtenir la liste des ports usb.;
+#X msg 59 213 close;
+#X text 107 214 Fermer le port.;
+#X obj 652 330 mrpeach/slipenc;
+#X obj 652 306 pack f f f;
+#X obj 686 142 hsl 256 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 652 189 int;
+#X obj 689 236 t b a;
+#X obj 698 185 hsl 256 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 689 212 int;
+#X obj 754 267 t b a;
+#X obj 756 214 hsl 256 15 0 255 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 753 236 int;
+#X text 112 131 Ouvrir une connexion série. Le numéro ou le nom du
+port série utilisé sera sans doute différent pour vous. Remplacez
+4 par le numéro du port série que vous utilisez.;
+#X obj 66 402 << 8;
+#X obj 69 451 |;
+#X floatatom 76 497 5 0 0 0 - - -;
+#X obj 164 478 >> 2;
+#X floatatom 159 498 5 0 0 0 - - -;
+#X text 202 476 Division par 4 (plus efficace).;
+#X text 199 500 Connecter cette boîte à un slider pour contrôler
+une LED avec le capteur.;
+#X obj 66 366 unpack f f f f;
+#X msg 55 140 open 3;
+#X text 158 40 SERIAL - ARDUINO;
+#X text 580 142 Sortie 9;
+#X text 571 179 Sortie 10;
+#X text 572 216 Sortie 11;
+#X text 562 420 ENTREE A0;
+#X obj 66 298 comport/comport 3 115200;
+#X text 811 260 En utilisant le protocole SLIP \, envoyer trois valeurs
+entre 0 et 255 au port série.;
+#X obj 771 100 inlet;
+#X obj 68 557 outlet;
+#X connect 2 0 25 0;
+#X connect 3 0 32 0;
+#X connect 5 0 32 0;
+#X connect 7 0 32 0;
+#X connect 8 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 11 1 8 1;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 8 0;
+#X connect 14 1 8 2;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 18 0 19 0;
+#X connect 19 0 20 0;
+#X connect 19 0 21 0;
+#X connect 19 0 35 0;
+#X connect 21 0 22 0;
+#X connect 25 0 18 0;
+#X connect 25 1 19 1;
+#X connect 26 0 32 0;
+#X connect 32 0 2 0;
+#X connect 34 0 9 0;

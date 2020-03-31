@@ -1,5 +1,7 @@
 # LutherieNumerique-Levrden
 
+The PureData, Processing and Arduino are in Assets/Externals
+
 https://forum.unity.com/threads/vfx-graph-accessing-particles-data-in-scripts.651709/#post-5577580
 
 Hello sorry, i missed the answers ! For now i don't have a lot of time to comment my unity project, but i can send it !
